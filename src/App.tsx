@@ -1,25 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import Navbar from './shared/navbar/Navbar';
+import { Outlet, Route, Routes } from 'react-router-dom';
+import Footer from './shared/footer/Footer';
+import Home from './routes/home/Home';
+import Portfolio from './routes/portfolio/Portfolio';
+import Resume from './routes/resume/Resume';
+import Contact from './routes/contact/Contact';
+import NotFound from './routes/notfound/NotFound';
+
+function Dashboard() {
+  return (
+    <div className='container theme theme--default'>
+      <Navbar />
+      <div className="page-content">
+        <Outlet />
+      </div>
+      <Footer />
+    </div>
+  );
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Dashboard/>}>
+        <Route index element={<Home/>}/>
+        <Route path="portfolio" element={<Portfolio/>}/>
+        <Route path="resume" element={<Resume/>}/>
+        <Route path="contact" element={<Contact/>}/>
+      </Route>
+      <Route path="*" element={<NotFound/>}/>
+    </Routes>
   );
 }
 

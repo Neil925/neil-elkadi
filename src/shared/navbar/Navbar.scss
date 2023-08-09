@@ -1,0 +1,7 @@
+@import '../../utilities//color-themes';
+
+#navbar {
+    @include themed() {
+        background-color: t(bg);
+    }
+}
