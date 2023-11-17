@@ -1,0 +1,59 @@
+@use '../../styles/abstracts/colors' as *;
+@import '../../styles/abstracts/variables';
+
+.navbar {
+    width: 100vw;
+    height: $navbar-h;
+
+    nav,ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style-type: none;
+        text-transform: capitalize;
+        height: 100%;
+
+        font-size: 1.3rem;
+    }
+
+    li {
+        text-decoration: none;
+        font-weight: bold;
+        margin: 0 1.2rem;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    h3 {
+        margin-left: 1rem;
+    }
+
+    button {
+        background-color: inherit;
+        border: none;
+        font-size: 2rem;
+        margin: 0 1rem;
+        cursor: pointer;
+    }
+}
+
+.text {
+    color: white;
+}
+
+.light {
+    background-color: $primary;
+    color: white;
+    button {
+        color: white;
+    }
+}
+
+.dark {
+    background-color: $primary;
+    button {
+        color: white;
+    }
+}

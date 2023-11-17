@@ -1,16 +1,20 @@
-@import './utilities/color-themes';
-@import './utilities/variables';
+html {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h3, ul, ol, li {
+  margin: 0;
+}
 
 body {
   margin: 0;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  @include themed() {
-    background-color: t(bg);
-  }
 }
 
 code {
@@ -21,7 +25,7 @@ code {
 %flex {
   display: flex;
   align-items: center;
-  width: 100%
+  width: 100%;
 }
 
 .flex-center {
@@ -32,4 +36,15 @@ code {
 .flex-right {
   @extend %flex;
   justify-content: right;
+}
+
+.flex-col-left {
+  @extend %flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.flex-col-center {
+  @extend .flex-center;
+  flex-direction: column;
 }

@@ -1,23 +1,29 @@
-import React, {useState} from 'react';
-import './Navbar.scss';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { ThemeContext } from '../../context/ThemeContext';
+
+import styles from "./navbar.module.scss";
 
 export default function Navbar() {
-
-    const [darkTheme, setTheme] = useState(false);
+    const { theme, setTheme } = useContext(ThemeContext);
 
     return (
-        <div className="flex-right theme theme--default" id='navbar'>
-            <nav className="nav-links">
-                <Link to='/'>Home</Link>
-                <Link to='/portfolio'>portfolio</Link>
-                <Link to='/resume'>resume</Link>
-                <Link to='/contact'>contact</Link>
-                <button onClick={() => setTheme(!darkTheme)}>
-                    <FontAwesomeIcon icon={darkTheme ? faSun : faMoon} />
-                </button>
+        <div className={`${styles.navbar} ${styles[theme]}`} id='navbar'>
+            <nav className={`nav-links`}>
+                <div className="nav-logo-box">
+                    <h3 className={styles.text}>Logo</h3>
+                </div>
+                <ul className="nav-links-box">
+                    <li><Link to='/' className={styles.text}>Home</Link></li>
+                    <li><Link to='/portfolio' className={styles.text}>portfolio</Link></li>
+                    <li><Link to='/resume' className={styles.text}>resume</Link></li>
+                    <li><Link to='/contact' className={styles.text}>contact</Link></li>
+                    <button onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
+                        <FontAwesomeIcon icon={theme === "light" ? faMoon : faSun} />
+                    </button>
+                </ul>
             </nav>
         </div>
     )

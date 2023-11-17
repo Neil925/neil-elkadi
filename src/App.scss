@@ -1,0 +1,10 @@
+@import './styles/abstracts/variables';
+
+.page-content {
+    min-height: $min-page-height;
+}
+
+.root {
+    min-width: 100vw;
+    min-height: 100vh;
+}

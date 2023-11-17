@@ -3,6 +3,11 @@ import './Home.scss';
 
 export default function Home() {
   return (
-    <div>Home</div>
+    <div id='home' className='text'>
+      <h1>
+        Welcome To Home
+      </h1>
+      <p>Work in Progress</p>
+    </div>
   )
 }

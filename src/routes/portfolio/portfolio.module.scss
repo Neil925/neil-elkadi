@@ -1,0 +1,31 @@
+@import '../../styles/abstracts/variables';
+@import '../../styles/abstracts/colors';
+
+.portfolio {
+    align-items: start;
+    header {
+        height: $min-page-height;
+
+        margin: 5vh 0 0 20vw;
+
+        span {
+            color: $primary;
+        }
+
+        p {
+            margin-top: $min-page-height * .39;
+        }
+
+        img {
+            position: absolute;
+            width: 25vw;
+            right: 15vw;
+            top: calc($navbar-h + 5vh);
+            transform-origin: center;
+        }
+    }
+
+    body {
+        
+    }
+}
