@@ -38,6 +38,11 @@ code {
   justify-content: right;
 }
 
+.flex-left {
+  @extend %flex;
+  justify-content: left;
+}
+
 .flex-col-left {
   @extend %flex;
   flex-direction: column;

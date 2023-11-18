@@ -10,6 +10,7 @@ export default function Navbar() {
     const { theme, setTheme } = useContext(ThemeContext);
 
     return (
+
         <div className={`${styles.navbar} ${styles[theme]}`} id='navbar'>
             <nav className={`nav-links`}>
                 <div className="nav-logo-box">

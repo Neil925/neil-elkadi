@@ -17,7 +17,7 @@ body {
 }
 
 .light {
-    @include theme(#fff, #000, $blue9, $green4);
+    @include theme(#e8e8e8, #000, $blue9, $green4);
 }
 
 .dark {
