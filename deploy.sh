@@ -16,7 +16,7 @@ COM="cd /usr/share/webapps; ";
 COM+="tar -xzf neil-elkadi.tar.gz && nginx -s reload; ";
 COM+="rm neil-elkadi.tar.gz";
 
-scp -i ~/Sensative/.ssh/archpckey neil-elkadi.tar.gz $HOST:/usr/share/webapps;
-ssh -i ~/Sensative/.ssh/archpckey $HOST "$COM";
+scp -i ~/Sensative/.ssh/archlpkey neil-elkadi.tar.gz $HOST:/usr/share/webapps;
+ssh -i ~/Sensative/.ssh/archlpkey $HOST "$COM";
 
 rm -r neil-elkadi neil-elkadi.tar.gz;

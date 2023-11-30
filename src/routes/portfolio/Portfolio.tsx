@@ -3,7 +3,7 @@ import styles from './portfolio.module.scss';
 import { ThemeContext } from '../../context/ThemeContext';
 import MyCodeBlock from '../../components/CodeBlock';
 
-import placeHolder from '../../resources/media/placeHolder.png';
+import profile from '../../resources/media/Neil.jpg';
 import github from '../../resources/media/Github.svg';
 import linedkin from '../../resources/media/LinkedIn.webp';
 
@@ -51,7 +51,7 @@ export default function Portfolio() {
           <p>Links have been provided for some of the works below.</p>
         </div>
         <div>
-          <img src={placeHolder} />
+          <img src={profile} />
         </div>
       </header>
       <body>
