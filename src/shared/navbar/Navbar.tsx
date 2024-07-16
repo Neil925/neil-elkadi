@@ -1,31 +1,34 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import logo from '../../resources/media/Logo512.png';
+import { FaGithub } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ThemeContext } from '../../context/ThemeContext';
-
-import styles from "./navbar.module.scss";
 
 export default function Navbar() {
     const { theme, setTheme } = useContext(ThemeContext);
 
     return (
-
-        <div className={`${styles.navbar} ${styles[theme]}`} id='navbar'>
-            <nav className={`nav-links`}>
-                <div className="nav-logo-box">
-                    <h3 className={styles.text}>Logo</h3>
-                </div>
-                <ul className="nav-links-box">
-                    <li><Link to='/' className={styles.text}>Home</Link></li>
-                    <li><Link to='/portfolio' className={styles.text}>portfolio</Link></li>
-                    <li><Link to='/resume' className={styles.text}>resume</Link></li>
-                    <li><Link to='/contact' className={styles.text}>contact</Link></li>
-                    <button onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
+        <nav className="flex items-center justify-between p-4 text-black dark:text-white" id='navbar'>
+            <div className="flex items-center">
+                <img src={logo} alt='logo' className='w-20 dark:invert' />
+            </div>
+            <ul className="flex space-x-4 text-3xl items-center">
+                <li>
+                    <FaGithub className=''/>
+                </li>
+                <li>
+                    <FaLinkedin className=''/>
+                </li>
+                <li className='pl-8 '>
+                    <button
+                        onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+                        className="focus:outline-none">
                         <FontAwesomeIcon icon={theme === "light" ? faMoon : faSun} />
                     </button>
-                </ul>
-            </nav>
-        </div>
-    )
+                </li>
+            </ul>
+        </nav>
+    );
 }

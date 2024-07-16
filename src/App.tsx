@@ -1,47 +1,39 @@
-import React, { useContext } from 'react';
 import { Outlet, Route, Routes } from 'react-router-dom';
 import Navbar from './shared/navbar/Navbar';
 import Footer from './shared/footer/Footer';
 
-import Home from './routes/home/Home';
-import Portfolio from './routes/portfolio/Portfolio';
-import Resume from './routes/resume/Resume';
-import Contact from './routes/contact/Contact';
 import NotFound from './routes/notfound/NotFound';
 
-import { ThemeContext } from './context/ThemeContext';
-
-import './styles/_main.scss';
 import './App.scss';
+import Home from './routes/home/Home';
 
 function Dashboard() {
-  let theme = useContext(ThemeContext).theme;
-
-  return (
-    <div className={`container ${theme} root`} id='root'>
-      <div className="background root">
-        <Navbar />
-        <div className="page-content">
-          <Outlet />
+    return (
+        <div className="dark:text-white overflow-x-hidden antialiased selection:bg-accent">
+            <div className='flixed top-0 -z-10 h-full w-full'></div>
+            <div className="fixed top-0 z-[-2] h-screen w-screen
+            bg-background bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]
+            dark:bg-neutral-950 dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(30,183,235,0.3),rgba(255,255,255,0))]"></div>
+            <div className="container mx-auto min-h-screen flex flex-col">
+                <Navbar />
+                <main className="flex-grow">
+                    <Outlet />
+                </main>
+                <Footer />
+            </div>
         </div>
-        <Footer />
-      </div>
-    </div>
-  );
+    );
 }
 
 function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<Dashboard />}>
-        <Route index element={<Home />} />
-        <Route path="portfolio" element={<Portfolio />} />
-        <Route path="resume" element={<Resume />} />
-        <Route path="contact" element={<Contact />} />
-      </Route>
-      <Route path="*" element={<NotFound />} />
-    </Routes>
-  );
+    return (
+        <Routes>
+            <Route path="/" element={<Dashboard />}>
+                <Route index element={<Home />} />
+            </Route>
+            <Route path="*" element={<NotFound />} />
+        </Routes>
+    );
 }
 
 export default App;

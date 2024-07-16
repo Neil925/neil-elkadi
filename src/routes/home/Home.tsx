@@ -1,13 +1,12 @@
-import React from 'react';
-import './Home.scss';
+import React from "react";
+import About from "../../components/About";
+import Hero from "../../components/Hero";
 
 export default function Home() {
-  return (
-    <div id='home' className='text'>
-      <h1>
-        Welcome To Home
-      </h1>
-      <p>Work in Progress</p>
-    </div>
-  )
+    return (
+        <div className="">
+                <Hero />
+                <About />
+        </div>
+    )
 }
