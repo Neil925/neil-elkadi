@@ -2,12 +2,12 @@ import constants from '../constants';
 
 function Experience() {
   return (
-    <div className='p-3 lg:p-0'>
+    <div className='p-3 lg:p-0 items-center'>
       <h2 className="text-3xl md:text-5xl lg:text-6xl text-center my-10">Experience</h2>
       {constants.experience.map(x => (
-        <div className='flex flex-col pb-5 sm:flex lg:flex-row'>
-          <div className='text-gray-500 lg:w-1/3'>{x.time}</div>
-          <div className='lg:w-2/3'>
+        <div className='flex flex-col pb-5 sm:flex lg:flex-row justify-around'>
+          <div className='text-gray-500 lg:w-96'>{x.time}</div>
+          <div className='lg:w-1/2'>
             <b>{x.title} - {x.place}</b>
             <p>{x.description}</p>
             <ul className='flex flex-wrap'>
