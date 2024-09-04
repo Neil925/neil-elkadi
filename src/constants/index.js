@@ -1,11 +1,22 @@
 import profile from '../resources/media/Profile.jpg';
 import about from '../resources/media/About.jpg';
 
+import placeHolder from '../resources/media/placeholder.png';
+
+import neilBot from '../resources/projects/NeilBot.png';
+import valenciaWeb from '../resources/projects/ValenciaTechClub.png';
+import engage from '../resources/projects/UnofficialEngageApi.png';
+import portfolioWebsite from '../resources/projects/Portfolio.png';
+
 const constants = {
   profile: profile,
-  heroText: "Starting since High School, I've been on a nonstop journy of computer mastery. From basic web development, to full stack, to software development, and even server administration. I've continued to pick up skill after skill whether it be for hobbies, small communities, or work. I am confident that what may come, I will always be on a path of persuit of knowledge and growth.",
+  heroText: "Starting since High School, I've been on a nonstop journey of computer mastery. From basic web development, to full stack, to software development, and even server administration. I've continued to pick up skill after skill whether it be for hobbies, small communities, or work. I am confident that what may come, I will always be on a path of pursuit of knowledge and growth.",
   aboutPic: about,
-  aboutText: "I do software development and server related stuff.",
+  aboutText: [
+    "I am a passionate developer who takes joy in creating solutions to many types of software problems. With a strong grasp on many programming languages as well as indepth knowledge of Linux Operating Systems and the cloud, I not only specialize in creating real-world applications but also in deployment, scailability, and maintenance. My experience has been building since I was a highschooler 2018 wherein I have had the chance to work on Ubuntu servers, cloud computing, a variety of web stacks, and more.",
+    "I am highly motivated when working with others and very naturally fill my position whether as a someone looking to learn and improve or a as leader. If I am not programming, I am teaching and if I am not teaching, I am learning.",
+    "Web engineering may be my career, but technology is my hobby."
+  ],
   experience: [
     {
       title: "Computer Programming Tutor",
@@ -41,31 +52,36 @@ const constants = {
       title: "Lesser Server Control",
       technologies: ["NodeJS", "DiscordJS", "Axios"],
       link: "https://github.com/Neil925/LesserServerControl",
-      describe: "DiscordJS bot that integrates with the Pterodactyl Panel API to allow for limited access server management from a discord channel using message commands."
+      img: neilBot,
+      description: "DiscordJS bot that integrates with the Pterodactyl Panel API to allow for limited access server management from a discord channel using message commands."
     },
     {
       title: "Valencia Tech Club Website",
       technologies: ["ReactJS", "SCSS", "TypeScript"],
       link: "https://vtech.neilelkadi.com/",
-      describe: "A website made by and for Valencia Tech Club. The site presents some general information about the club, its noteable members / leaders, and resources on how to become part of the club."
+      img: valenciaWeb,
+      description: "A website made by and for Valencia Tech Club. The site presents some general information about the club, its notable members / leaders, and resources on how to become part of the club."
     },
     {
       title: "Unnoficial Engage API",
       technologies: ["NodeJS", "Typescript", "ExpressJS", "Axios", "SQLite"],
       link: "https://github.com/Neil925/unofficial-engage-api",
-      describe: "The Unofficial Engage API provides a way to pull event data from the Engage website without having to use Engage's developer API. The API can only show events that are public and accessible to anyone. It accomplishes this by scraping the publicly available data from the Engage website. All information pulled from the Engage website is then stored in a SQLite Database."
+      img: engage,
+      description: "The Unofficial Engage API provides a way to pull event data from the Engage website without having to use Engage's developer API. The API can only show events that are public and accessible to anyone. It accomplishes this by scraping the publicly available data from the Engage website. All information pulled from the Engage website is then stored in a SQLite Database."
     },
     {
-      title: "Portfolia Website",
-      technologies: ["ReactJS", "Typescript"],
+      title: "Portfolio Website",
+      technologies: ["ReactJS", "Typescript", "TailWind"],
       link: "https://github.com/Neil925/neil-elkadi",
-      describe: "The very site you see before you. Get to know more about me and what I do through the work I've done on my website and the resources I have linked to it!"
+      img: portfolioWebsite,
+      description: "The very site you see before you. Get to know more about me and what I do through the work I've done on my website and the resources I have linked to it!"
     },
     {
       title: "Crazy Pills",
-      technologies: ["C# .NET", "Northwood API"],
+      technologies: ["C#", ".NET", "Northwood API"],
       link: "https://github.com/Neil925/CrazyPills",
-      describe: "An SCP:SL plugin that allows for randomized and fun events to occur upon consumptions of the in-game item \"Pain Killers\"."
+      img: placeHolder,
+      description: "An SCP:SL plugin that allows for randomized and fun events to occur upon consumptions of the in-game item \"Pain Killers\"."
     },
   ]
 };
