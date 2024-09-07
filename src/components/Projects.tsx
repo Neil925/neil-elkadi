@@ -24,7 +24,7 @@ export default function Projects() {
             </ul>
           </div>
           <div className='w-fit md:w-96 flex justify-center lg:justify-end'>
-            <img className='text-gray-500 w-full lgmax-w-72' src={x.img} />
+            <img className='text-gray-500 w-full lgmax-w-72' src={x.img} alt='project' />
           </div>
         </div>
       ))}
