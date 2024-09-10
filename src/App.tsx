@@ -4,6 +4,7 @@ import NotFound from './routes/notfound/NotFound';
 
 import './App.scss';
 import Home from './routes/home/Home';
+import ThemeButton from './components/fixed/ThemeButton';
 
 function Dashboard() {
   return (
@@ -14,6 +15,7 @@ function Dashboard() {
             dark:bg-neutral-950 dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(30,183,235,0.3),rgba(255,255,255,0))]"></div>
       <div className="container mx-auto min-h-screen flex flex-col">
         <Navbar />
+        <ThemeButton />
         <main className="flex-grow pb-10">
           <Outlet />
         </main>

@@ -9,7 +9,7 @@ export default function Hero() {
         <motion.div className="flex flex-col space-y-8 items-center lg:items-start w-full lg:w-1/2 mb-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: .2, duration: 1 }}
+          transition={{ delay: .4, duration: 1 }}
         >
           <h1 className="lg:text-9xl md:text-8xl text-5xl">Neil Elkadi</h1>
           <h2
@@ -21,7 +21,7 @@ export default function Hero() {
         <motion.img src={constants.profile} alt="profile" className="w-96 object-contain rounded-full"
           initial={{ x: '100vw' }}
           animate={{ x: 0 }}
-          transition={{ type: "tween", delay: 0.3, duration: 0.5 }}
+          transition={{ type: "tween", delay: 0.4, duration: 1 }}
         />
       </div>
     </div>
