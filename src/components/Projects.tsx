@@ -4,6 +4,9 @@ import { motion } from 'framer-motion';
 
 export default function Projects() {
   function fullscreen(event: any) {
+    if (window.innerWidth < 770)
+      return;
+
     let el: HTMLDialogElement = document.querySelector("#fullscreen-img")!;
 
     el.querySelector("img")!.src = event.target.src;

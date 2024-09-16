@@ -5,7 +5,7 @@ export default function About() {
   return (
     <div className="">
       <div className="flex flex-wrap justify-around p-3">
-        <motion.img src={constants.aboutPic} alt="profile" className="w-96 object-contain rounded-full order-last lg:-order-1"
+        <motion.img src={constants.aboutPic} alt="profile" className="w-96 object-contain rounded-2xl order-last lg:-order-1"
           initial={{ x: '-100vw' }}
           animate={{ x: 0 }}
           transition={{ type: "tween", delay: 1, duration: 1 }}

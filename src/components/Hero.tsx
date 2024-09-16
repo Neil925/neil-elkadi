@@ -18,7 +18,7 @@ export default function Hero() {
           <motion.p
           >{constants.heroText}</motion.p>
         </motion.div>
-        <motion.img src={constants.profile} alt="profile" className="w-96 object-contain rounded-full"
+        <motion.img src={constants.profile} alt="profile" className="w-96 object-contain rounded-sm"
           initial={{ x: '100vw' }}
           animate={{ x: 0 }}
           transition={{ type: "tween", delay: 0.4, duration: 1 }}
