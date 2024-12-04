@@ -1,9 +1,8 @@
 import { Outlet, Route, Routes } from 'react-router-dom';
 import Navbar from './shared/navbar/Navbar';
-import NotFound from './routes/notfound/NotFound';
+import NotFound from './routes/NotFound';
 
-import './App.scss';
-import Home from './routes/home/Home';
+import Home from './routes/Home';
 import ThemeButton from './components/fixed/ThemeButton';
 
 function Dashboard() {
