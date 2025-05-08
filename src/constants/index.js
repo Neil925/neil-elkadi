@@ -77,7 +77,7 @@ const constants = {
         "Firebase",
       ],
       description:
-        "I began my web development journey in a small team, learning and collaborating on projects. We created websites for family and online groups using ReactJS and Bootstrap, managing projects through GitHub and integrating databases with Firebase.",
+        "I began my web development journey in a small team, learning and collaborating on projects. We created websites for family and online groups using ReactJS and Bootstrap, managing projects through srcCode and integrating databases with Firebase.",
     },
   ],
   projects: [
@@ -92,7 +92,8 @@ const constants = {
         "Prisma",
         "CI/CD Pipelines",
       ],
-      link: "https://github.com/Neil925/neil-freelance",
+      srcCode: "https://github.com/Neil925/neil-freelance",
+      demo: "https://neilfreelance.com",
       img: freelance,
       description:
         "A personal freelance site that acts as a landing page for the services that I can provide as well as a protal for the submission of freelance requests by users and management of those requests by admins (myself).",
@@ -100,7 +101,7 @@ const constants = {
     {
       title: "Lesser Server Control",
       technologies: ["NodeJS", "DiscordJS", "Axios"],
-      link: "https://github.com/Neil925/LesserServerControl",
+      srcCode: "https://github.com/Neil925/LesserServerControl",
       img: neilBot,
       description:
         "DiscordJS bot that integrates with the Pterodactyl Panel API to allow for limited access server management from a discord channel using message commands.",
@@ -108,15 +109,16 @@ const constants = {
     {
       title: "Valencia Tech Club Website",
       technologies: ["ReactJS", "SCSS", "TypeScript"],
-      link: "https://vtech.neilelkadi.com/",
+      srcCode: "https://github.com/Neil925/vtechclub",
+      demo: "https://vtech.neilelkadi.com/",
       img: valenciaWeb,
       description:
         "A website made by and for Valencia Tech Club. The site presents some general information about the club, its notable members / leaders, and resources on how to become part of the club.",
     },
     {
-      title: "Unnoficial Engage API",
+      title: "Unofficial Engage API",
       technologies: ["NodeJS", "Typescript", "ExpressJS", "Axios", "SQLite"],
-      link: "https://github.com/Neil925/unofficial-engage-api",
+      srcCode: "https://github.com/Neil925/unofficial-engage-api",
       img: engage,
       description:
         "The Unofficial Engage API provides a way to pull event data from the Engage website without having to use Engage's developer API. The API can only show events that are public and accessible to anyone. It accomplishes this by scraping the publicly available data from the Engage website. All information pulled from the Engage website is then stored in a SQLite Database.",
@@ -124,7 +126,8 @@ const constants = {
     {
       title: "Portfolio Website",
       technologies: ["ReactJS", "Typescript", "TailWind"],
-      link: "https://github.com/Neil925/neil-elkadi",
+      srcCode: "https://github.com/Neil925/neil-elkadi",
+      demo: "https://neilelkadi.com?alreadyhere=1",
       img: portfolioWebsite,
       description:
         "The very site you see before you. Get to know more about me and what I do through the work I've done on my website and the resources I have linked to it!",
@@ -132,7 +135,7 @@ const constants = {
     {
       title: "Crazy Pills",
       technologies: ["C#", ".NET", "Northwood API"],
-      link: "https://github.com/Neil925/CrazyPills",
+      srcCode: "https://github.com/Neil925/CrazyPills",
       img: pills,
       description:
         'An SCP:SL plugin that allows for randomized and fun events to occur upon consumptions of the in-game item "Pain Killers".',

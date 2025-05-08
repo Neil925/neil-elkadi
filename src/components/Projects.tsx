@@ -1,5 +1,5 @@
 import constants from "../constants";
-import { FaLink } from "react-icons/fa";
+import { FaGithub, FaLink } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 export default function Projects() {
@@ -56,17 +56,29 @@ export default function Projects() {
           key={k}
         >
           <div className="lg:w-1/2">
-            {x.link
+            {x.demo || x.srcCode
               ? (
-                <a
-                  className="flex text-dPrimary underline w-fit"
-                  href={x.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <b className="flex">{x.title}</b>
-                  <div className="pl-2 pt-1">{x.link ? <FaLink /> : null}</div>
-                </a>
+                <div className="flex space-x-2 items-center">
+                  <a
+                    className="flex text-dPrimary underline w-fit"
+                    href={x.demo ?? x.srcCode}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <b className="flex">{x.title}</b>
+                  </a>
+
+                  {x.demo && (
+                    <a className="w-fit" href={x.demo} target="_blank">
+                      <FaLink size={18} />
+                    </a>
+                  )}
+                  {x.srcCode && (
+                    <a className="w-fit" href={x.srcCode} target="_blank">
+                      <FaGithub size={18} />
+                    </a>
+                  )}
+                </div>
               )
               : <b>{x.title}</b>}
             <p>{x.description}</p>
