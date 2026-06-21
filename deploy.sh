@@ -1,29 +1,29 @@
 #!/bin/sh
 
-HOST=""
-KEY="~/Sensative/.ssh/archlpkey"
-echo -n "Sudo password: "
-read -s PASS
-echo -e "\n"
+source ./.env
 
-if [ -z $1 ]; then
-  echo -n "(L)ocal?/(r)emote: "
-  read loc
-  if [ -z loc ] || [[ $loc == "" ]]; then
-    loc=r
-  fi
-else
-  loc=$1
-fi
-
-if [[ $loc == "r" ]] || [[ $loc == "R" ]]; then
-  HOST="dhs@67.235.178.246"
-elif [[ $loc == "l" ]] || [[ $loc == "L" ]]; then
-  HOST="dhs@192.168.1.2"
-else
-  echo "Invalid."
+if [[ -z "${SSH_HOST}" ]]; then
+  echo "Missing SSH_HOST environment variable"
   exit 1
 fi
+
+if [[ -z "${SSH_USER}" ]]; then
+  echo "Missing SSH_USER environment variable"
+  exit 1
+fi
+
+if [[ -z "${SSH_KEY}" ]]; then
+  echo "Missing SSH_KEY environment variable"
+  exit 1
+fi
+
+if [[ -z "${PASS}" ]]; then
+  echo "Missing PASS environment variable"
+  exit 1
+fi
+
+KEY="${SSH_KEY}"
+HOST="${SSH_USER}@${SSH_HOST}"
 
 cp -r build neil-elkadi
 tar -czvf neil-elkadi.tar.gz neil-elkadi

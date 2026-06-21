@@ -69,12 +69,12 @@ export default function Projects() {
                   </a>
 
                   {x.demo && (
-                    <a className="w-fit" href={x.demo} target="_blank">
+                    <a className="w-fit" href={x.demo} target="_blank" rel="noreferrer">
                       <FaLink size={18} />
                     </a>
                   )}
                   {x.srcCode && (
-                    <a className="w-fit" href={x.srcCode} target="_blank">
+                    <a className="w-fit" href={x.srcCode} target="_blank" rel="noreferrer">
                       <FaGithub size={18} />
                     </a>
                   )}

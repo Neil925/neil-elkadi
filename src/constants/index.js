@@ -5,13 +5,12 @@ import neilBot from "../resources/projects/NeilBot.png";
 import valenciaWeb from "../resources/projects/ValenciaTechClub.png";
 import engage from "../resources/projects/UnofficialEngageApi.png";
 import portfolioWebsite from "../resources/projects/Portfolio.png";
-import pills from "../resources/projects/CrazyPills.jpg";
 import freelance from "../resources/projects/NeilFreelance.png";
 
 const constants = {
   profile: profile,
-  heroText:
-    "Starting since High School, I've been on a nonstop journey of computer mastery. From basic web development, to full stack, to software development, and even server administration. I've continued to pick up skill after skill whether it be for hobbies, small communities, or work. I am confident that what may come, I will always be on a path of pursuit of knowledge and growth.",
+  role: 'Softawre Developer',
+  heroText: 'Build full-stack features and squash bugs quickly and cleanly. Fast-learning, seasoned developer, I have developed mastery of several frameworks and libraries that allow me to turn ideas into functional code. I thrive in collaborative teams, mentoring and learning in equal measure.',
   aboutPic: about,
   aboutText: [
     "I am a passionate developer who takes joy in creating solutions to many types of software problems. With a strong grasp on many programming languages as well as indepth knowledge of Linux Operating Systems and the cloud, I not only specialize in creating real-world applications but also in deployment, scailability, and maintenance. My experience has been building since I was a highschooler 2018 wherein I have had the chance to work on Ubuntu servers, cloud computing, a variety of web stacks, and more.",
@@ -131,14 +130,6 @@ const constants = {
       img: portfolioWebsite,
       description:
         "The very site you see before you. Get to know more about me and what I do through the work I've done on my website and the resources I have linked to it!",
-    },
-    {
-      title: "Crazy Pills",
-      technologies: ["C#", ".NET", "Northwood API"],
-      srcCode: "https://github.com/Neil925/CrazyPills",
-      img: pills,
-      description:
-        'An SCP:SL plugin that allows for randomized and fun events to occur upon consumptions of the in-game item "Pain Killers".',
     },
   ],
 };

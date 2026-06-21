@@ -1,6 +1,5 @@
 import logo from '../../resources/media/Logo512.png';
-import { FaGithub } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { motion } from 'framer-motion';
 
 export default function Navbar() {

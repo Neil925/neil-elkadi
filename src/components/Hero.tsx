@@ -13,7 +13,7 @@ export default function Hero() {
       >
         <h1 className="lg:text-9xl md:text-8xl text-5xl">Neil Elkadi</h1>
         <h2 className="text-3xl md:text-5xl lg:text-6xl bg-gradient-to-r from-accent via-dPrimary to-accent w-fit bg-clip-text text-transparent pb-2">
-          Web Engineer
+          {constants.role}
         </h2>
         <motion.p>{constants.heroText}</motion.p>
       </motion.div>
