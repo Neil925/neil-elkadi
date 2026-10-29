@@ -10,11 +10,11 @@ import kpgpanel from "../resources/projects/kpgpanel.png"
 
 const constants = {
   profile: profile,
-  role: 'Softawre Developer',
+  role: 'Software Developer',
   heroText: 'Build full-stack features and squash bugs quickly and cleanly. Fast-learning, seasoned developer, I have developed mastery of several frameworks and libraries that allow me to turn ideas into functional code. I thrive in collaborative teams, mentoring and learning in equal measure.',
   aboutPic: about,
   aboutText: [
-    "I am a passionate developer who takes joy in creating solutions to many types of software problems. With a strong grasp on many programming languages as well as indepth knowledge of Linux Operating Systems and the cloud, I not only specialize in creating real-world applications but also in deployment, scailability, and maintenance. My experience has been building since I was a highschooler 2018 wherein I have had the chance to work on Ubuntu servers, cloud computing, a variety of web stacks, and more.",
+    "I am a passionate developer who takes joy in creating solutions to many types of software problems. With a strong grasp on many programming languages as well as indepth knowledge of Linux Operating Systems and the cloud, I not only specialize in creating real-world applications but also in deployment, scalability, and maintenance. My experience has been building since I was a highschooler 2018 wherein I have had the chance to work on Ubuntu servers, cloud computing, a variety of web stacks, and more.",
     "I am highly motivated when working with others and very naturally fill my position whether as a someone looking to learn and improve or a as leader. If I am not programming, I am teaching and if I am not teaching, I am learning.",
     "Web engineering may be my career, but technology is my hobby.",
   ],
