@@ -15,7 +15,6 @@
     "@types/react": "^18.2.19",
     "@types/react-dom": "^18.2.7",
     "framer-motion": "^11.5.4",
-    "fs": "^0.0.1-security",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.4.0",
@@ -30,7 +29,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "./deploy.sh"
+    "serve": "python3 -m http.server 8099 --bind 127.0.0.1 --directory build",
+    "deploy": "scripts/deploy.sh",
+    "deploy:dry": "scripts/deploy.sh --dry-run",
+    "rollback": "scripts/deploy.sh --rollback"
   },
   "eslintConfig": {
     "extends": [

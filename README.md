@@ -1,46 +1,84 @@
-# Getting Started with Create React App
+# neilelkadi.com
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Neil's personal site: Create React App + TypeScript + Tailwind, served as static
+files by nginx on the proxy container, in front of Cloudflare.
 
-## Available Scripts
+Live at <https://neilelkadi.com>. The `www` name does not exist in DNS.
 
-In the project directory, you can run:
+## Deploy
 
-### `npm start`
+```
+npm run deploy:dry     # build + local checks only, touches nothing remote
+npm run deploy         # build, local gate, ship, install, verify
+npm run rollback       # previous release becomes current again
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+What `scripts/deploy.sh` actually does:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. **Preflight** — the tree must be clean, so a release is always a commit. It
+   checks the SSH control master; if `agent-ssh-tools` exits **90** there is no
+   live master and a human has to open one. The script never authenticates.
+2. **Build here.** The container has no node, git or rsync — one tarball of
+   `build/` is all that travels. Source maps are switched off: about half the
+   payload, and no reason to publish readable source.
+3. **Local gate.** A throwaway `python3 -m http.server` over `build/` on
+   127.0.0.1: `/`, every asset named in `index.html` (the names are content
+   hashes, so they are read from the file, never hardcoded), every icon named in
+   `manifest.json`, and `resume.pdf`. Any 404 aborts before anything goes over
+   the network. This is what caught `manifest.json` asking for `logo192.png`
+   while the file was `Logo192.png` — harmless on a case-insensitive laptop, a
+   404 on the Linux origin.
+4. **Ship** one tarball with `push`, then compare md5 on both ends.
+5. **Install** by unpacking to `/var/www/neilelkadi.com/releases/<git-sha>` and
+   atomically flipping the `current` symlink. A deploy is all-or-nothing, the
+   last three releases stay on disk, and rollback is one `mv`. nginx follows the
+   symlink, so a content deploy needs **no nginx reload**.
+6. **Verify** from inside the container first (origin over http and https, an
+   SPA deep link, and `tv.theneil.zone` to prove the family site is unaffected),
+   then through Cloudflare.
 
-### `npm test`
+Host-side facts, and the nginx vhost, live with the code:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Path | What |
+| --- | --- |
+| `deploy/nginx/neilelkadi.com.conf` | the vhost, installed at `/etc/nginx/sites-available/neilelkadi.com.conf` on the proxy container (CT 100) |
+| `/var/www/neilelkadi.com/releases/<sha>` | unpacked builds |
+| `/var/www/neilelkadi.com/current` | symlink nginx serves; what a deploy flips |
 
-### `npm run build`
+The certificate is a Let's Encrypt cert for `neilelkadi.com` at
+`/etc/letsencrypt/live/neilelkadi.com/`, obtained with certbot's `dns-cloudflare`
+plugin on the container. It is **not** the `*.theneil.zone` wildcard — that one
+never covers this domain, so the vhost sets its own `ssl_certificate` lines
+instead of including `snippets/tls.conf`. Renewal is the `certbot.timer`; a
+deploy hook in `/etc/letsencrypt/renewal-hooks/deploy/` reloads nginx afterwards.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`scripts/deploy.sh` assumes `agent-ssh-tools` is installed and that the target's
+control socket is already open:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+ssh -M -S ~/.ssh/sockets/pve.sock -fN root@192.168.1.5     # a human runs this
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Develop
 
-### `npm run eject`
+```
+npm install
+npm start          # CRA dev server, http://localhost:3000
+npm run serve      # plain static server over build/ on 127.0.0.1:8099
+npm test
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Notes
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Routing is `BrowserRouter`, so unknown paths must reach React (it owns the
+  NotFound route). The vhost's `try_files $uri $uri/ /index.html` is what makes
+  that true; without it nginx answers 404 itself.
+- `index.html` is served `no-cache` and `/static/` is `immutable`. That split is
+  not decoration: `index.html` names the hashed filenames, so a cached one after
+  a deploy points at JavaScript that no longer exists.
+- Cloudflare is orange-clouded with SSL/TLS mode **Full (strict)**, which is why
+  the port-80 block is a plain 301 to https, and why the origin needs a valid
+  cert rather than a self-signed one.
+- CRA (`react-scripts`) is deprecated upstream but still builds cleanly on
+  Node 26. Moving to Vite is a separate decision, not part of keeping this site
+  running.
