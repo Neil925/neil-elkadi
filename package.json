@@ -28,11 +28,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "serve": "python3 -m http.server 8099 --bind 127.0.0.1 --directory build",
-    "deploy": "scripts/deploy.sh",
-    "deploy:dry": "scripts/deploy.sh --dry-run",
-    "rollback": "scripts/deploy.sh --rollback"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
