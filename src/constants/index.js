@@ -34,7 +34,7 @@ const constants = {
         "Being part of the Rapid Development Team, I am responsible for addressing bugs and introducing small features within 24 hours of assignment.Followiong agile practices, I work through Jira tickets at ~3 tickets per day while ensuring code quality. My responsibility will also include performing peer reviews for others on my team.",
     },
     {
-      title: "Application Technecian",
+      title: "Application Technician",
       place: "ThreatLocker",
       time: "June 2025 - August 2025",
       skills: [
